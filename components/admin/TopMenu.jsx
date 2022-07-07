@@ -1,5 +1,5 @@
 import { BiSearchAlt } from "react-icons/bi";
-import { TbMapSearch } from "react-icons/tb";
+import { RiSendPlaneLine } from "react-icons/ri";
 import { IconContext } from "react-icons/lib";
 import styled from "styled-components";
 import Link from "next/link";
@@ -11,7 +11,7 @@ const Menu = styled.div`
     height: 50px;
     max-width: calc(100vw - 200px);
     background-color: var(--white);
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 18vw;
     -webkit-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.15); 
@@ -113,8 +113,8 @@ const TopMenu = (props) => {
             <Link href="/">
                 <BtnSite>
 
-                    <IconContext.Provider value={{ color: "rgba(0,0,0,0.8)", size: "1.5rem" }}>
-                        <TbMapSearch />
+                    <IconContext.Provider value={{ color: "rgba(0,0,0,0.8)", size: "1rem" }}>
+                        <RiSendPlaneLine />
                         Ir para o site
                     </IconContext.Provider>
                 </BtnSite>

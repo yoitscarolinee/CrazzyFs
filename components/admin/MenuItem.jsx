@@ -12,7 +12,7 @@ const Item = styled.div`
     cursor: pointer;
     background-color: rgba(255, 255, 255, 0.1);
     transition: 0.3s;
-    border-bottom: 1px solid var(--grey);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
     &:hover {
         background-color: rgba(255, 255, 255, 0);
     }
@@ -30,7 +30,7 @@ const Item = styled.div`
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 0.9rem;
+        font-size: 0.8rem;
         font-weight: 500;
         color: var(--white);
     }

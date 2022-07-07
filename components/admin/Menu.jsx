@@ -1,8 +1,9 @@
 import Image from "next/image";
-import { BiBookBookmark, BiHomeAlt } from "react-icons/bi";
-import { AiOutlineUser } from "react-icons/ai";
-import { RiFolderAddLine } from "react-icons/ri";
-import { IoSettingsOutline } from "react-icons/io";
+import { BiBookBookmark, BiHomeAlt, BiMicrophone } from "react-icons/bi";
+import { AiOutlineUser, AiOutlineStar, AiOutlineFileText, AiOutlineMessage } from "react-icons/ai";
+import { RiFolderAddLine, RiSoundModuleFill } from "react-icons/ri";
+import { FiSettings, FiServer, FiPower, FiAlertCircle, FiUsers } from "react-icons/fi";
+import { BiBlock, BiPaint } from "react-icons/bi";
 import { IconContext } from "react-icons/lib";
 import styled from "styled-components";
 import MenuItem from "./MenuItem";
@@ -13,7 +14,11 @@ const MenuBar = styled.div`
     width: 18vw;
     min-width: 200px;
     background-color: #343538;
-    height: 100vh;
+    min-height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    user-select: none;
 `;
 
 const Perfil = styled.div`
@@ -62,13 +67,135 @@ const Menu = () => {
             icon: <AiOutlineUser />,
             text: "Meus dados",
             options: {
-                configurações: {
-                    icon: <IoSettingsOutline />,
-                    link: 'configuracoes'
-                },
                 uploads: {
+                    link: 'uploads',
+                    texto: 'Uploads',
                     icon: <RiFolderAddLine />,
-                    link: 'uploads'
+                },
+                configurações: {
+                    link: 'configuracoes',
+                    texto: 'Configurações',
+                    icon: <FiSettings />,
+                }
+            }
+        }
+    ]
+
+    const administracao = [
+        {
+            icon: <AiOutlineStar />,
+            text: "Administração",
+            options: {
+                alertas: {
+                    link: 'alertas',
+                    text: 'Alertas no Site',
+                    icon: <FiAlertCircle />,
+                },
+                avisos: {
+                    link: 'avisos',
+                    text: 'Avisos',
+                    icon: <AiOutlineMessage />,
+                },
+                configuracoes: {
+                    link: 'configradio',
+                    text: 'Configurações da Rádio',
+                    icon: <FiSettings />,
+                },
+                blacklist: {
+                    link: 'blacklist',
+                    text: 'Lista Negra',
+                    icon: <BiBlock />,
+                },
+                equipe: {
+                    link: 'equipe',
+                    text: 'Membros da Equipe',
+                    icon: <FiUsers />,
+                },
+                temaSite: {
+                    link: 'temasite',
+                    text: 'Tema do site',
+                    icon: <BiPaint />,
+                },
+                vinhetas: {
+                    link: 'vinhetas',
+                    text: 'Vinhetas',
+                    icon: <RiSoundModuleFill />,
+                }
+            }
+        }
+    ]
+
+    const coordenacao = [
+        {
+            icon: <AiOutlineStar />,
+            text: "Coordenação",
+            options: {
+                uploads: {
+                    link: 'uploads',
+                    texto: 'Uploads',
+                    icon: <RiFolderAddLine />,
+                },
+                configurações: {
+                    link: 'configuracoes',
+                    texto: 'Uploads',
+                    icon: <FiSettings />,
+                }
+            }
+        }
+    ]
+
+    const moderacao = [
+        {
+            icon: <AiOutlineStar />,
+            text: "Moderação",
+            options: {
+                uploads: {
+                    link: 'uploads',
+                    texto: 'Uploads',
+                    icon: <RiFolderAddLine />,
+                },
+                configurações: {
+                    link: 'configuracoes',
+                    texto: 'Uploads',
+                    icon: <FiSettings />,
+                }
+            }
+        }
+    ]
+
+    const portalNoticias = [
+        {
+            icon: <AiOutlineFileText />,
+            text: "Portal de Notícias",
+            options: {
+                uploads: {
+                    link: 'uploads',
+                    texto: 'Uploads',
+                    icon: <RiFolderAddLine />,
+                },
+                configurações: {
+                    link: 'configuracoes',
+                    texto: 'Uploads',
+                    icon: <FiSettings />,
+                }
+            }
+        }
+    ]
+
+    const locucao = [
+        {
+            icon: <BiMicrophone />,
+            text: "Locução",
+            options: {
+                uploads: {
+                    link: 'uploads',
+                    texto: 'Uploads',
+                    icon: <RiFolderAddLine />,
+                },
+                configurações: {
+                    link: 'configuracoes',
+                    texto: 'Uploads',
+                    icon: <FiSettings />,
                 }
             }
         }
@@ -114,10 +241,17 @@ const Menu = () => {
                 </div>
 
             </Perfil>
-            <IconContext.Provider value={{ color: 'var(--white)', size: '1.2rem' }}>
+            <IconContext.Provider value={{ color: 'var(--white)', size: '1.2rem', style: { verticalAlign: 'middle' } }}>
                 <MenuItem link="" text="Homepage" icon={<BiHomeAlt />} />
-                <MenuItemDropdown objects={dados[0]} />
+                <MenuItemDropdown objects={dados[0]} size='2' />
+                <MenuItemDropdown objects={administracao[0]} size='7' />
+                <MenuItemDropdown objects={coordenacao[0]} size='2' />
+                <MenuItemDropdown objects={moderacao[0]} size='2' />
+                <MenuItemDropdown objects={portalNoticias[0]} size='2' />
+                <MenuItemDropdown objects={locucao[0]} size='2' />
+                <MenuItem link="logs" text="Logs" icon={<FiServer />} />
                 <MenuItem link="changelog" text="Changelog" icon={<BiBookBookmark />} />
+                <MenuItem link="../api/auth/logout" text="Deslogar-se" icon={<FiPower />} />
             </IconContext.Provider>
 
         </MenuBar>
