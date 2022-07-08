@@ -1,9 +1,11 @@
 import Image from "next/image";
 import { BiBookBookmark, BiHomeAlt, BiMicrophone } from "react-icons/bi";
-import { AiOutlineUser, AiOutlineStar, AiOutlineFileText, AiOutlineMessage } from "react-icons/ai";
-import { RiFolderAddLine, RiSoundModuleFill } from "react-icons/ri";
+import { AiOutlineUser, AiOutlineStar, AiOutlineFileText, AiOutlineMessage, AiFillSound } from "react-icons/ai";
+import { RiFolderAddLine, RiSoundModuleFill, RiUserSearchLine } from "react-icons/ri";
 import { FiSettings, FiServer, FiPower, FiAlertCircle, FiUsers } from "react-icons/fi";
-import { BiBlock, BiPaint } from "react-icons/bi";
+import { BiBlock, BiPaint, BiBadgeCheck } from "react-icons/bi";
+import { TbClockOff, TbLivePhoto, TbClock } from "react-icons/tb";
+import { GiBubbles } from "react-icons/gi";
 import { IconContext } from "react-icons/lib";
 import styled from "styled-components";
 import MenuItem from "./MenuItem";
@@ -69,17 +71,17 @@ const Menu = () => {
             options: {
                 uploads: {
                     link: 'uploads',
-                    texto: 'Uploads',
+                    text: 'Uploads',
                     icon: <RiFolderAddLine />,
                 },
-                configurações: {
+                configuracoes: {
                     link: 'configuracoes',
-                    texto: 'Configurações',
+                    text: 'Configurações',
                     icon: <FiSettings />,
                 }
             }
         }
-    ]
+    ];
 
     const administracao = [
         {
@@ -123,45 +125,50 @@ const Menu = () => {
                 }
             }
         }
-    ]
+    ];
 
     const coordenacao = [
         {
             icon: <AiOutlineStar />,
             text: "Coordenação",
             options: {
-                uploads: {
-                    link: 'uploads',
-                    texto: 'Uploads',
-                    icon: <RiFolderAddLine />,
+                programação: {
+                    link: 'desmarcarprogramacao',
+                    text: 'Desmarcar programação',
+                    icon: <TbClockOff />,
                 },
-                configurações: {
-                    link: 'configuracoes',
-                    texto: 'Uploads',
-                    icon: <FiSettings />,
+                radio: {
+                    link: 'desmarcarradio',
+                    text: 'Desmarcar horarios rádio',
+                    icon: <TbClockOff />,
                 }
             }
         }
-    ]
+    ];
 
     const moderacao = [
         {
             icon: <AiOutlineStar />,
             text: "Moderação",
             options: {
-                uploads: {
-                    link: 'uploads',
-                    texto: 'Uploads',
-                    icon: <RiFolderAddLine />,
+                emblemas: {
+                    link: 'emblemas',
+                    text: 'Emblemas de Usuário',
+                    icon: <BiBadgeCheck />,
                 },
-                configurações: {
-                    link: 'configuracoes',
-                    texto: 'Uploads',
-                    icon: <FiSettings />,
+                timeline: {
+                    link: 'timeline',
+                    text: 'Timeline',
+                    icon: <GiBubbles />,
+                },
+                registrados: {
+                    link: 'usuarios',
+                    text: 'Usuários Registrados',
+                    icon: <RiUserSearchLine />,
                 }
             }
         }
-    ]
+    ];
 
     const portalNoticias = [
         {
@@ -170,36 +177,41 @@ const Menu = () => {
             options: {
                 uploads: {
                     link: 'uploads',
-                    texto: 'Uploads',
+                    text: 'Uploads',
                     icon: <RiFolderAddLine />,
                 },
                 configurações: {
                     link: 'configuracoes',
-                    texto: 'Uploads',
+                    text: 'Uploads',
                     icon: <FiSettings />,
                 }
             }
         }
-    ]
+    ];
 
     const locucao = [
         {
             icon: <BiMicrophone />,
             text: "Locução",
             options: {
-                uploads: {
-                    link: 'uploads',
-                    texto: 'Uploads',
-                    icon: <RiFolderAddLine />,
+                live: {
+                    link: 'aovivo',
+                    text: 'Entrar no Ar',
+                    icon: <TbLivePhoto />,
                 },
-                configurações: {
-                    link: 'configuracoes',
-                    texto: 'Uploads',
-                    icon: <FiSettings />,
+                horarios: {
+                    link: 'horarios',
+                    text: 'Horarios',
+                    icon: <TbClock />,
+                },
+                vinhetas: {
+                    link: 'vinhetas',
+                    text: 'Vinhetas',
+                    icon: <AiFillSound />,
                 }
             }
         }
-    ]
+    ];
 
     return (
 

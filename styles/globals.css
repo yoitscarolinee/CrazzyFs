@@ -14,7 +14,8 @@ body {
   --secondary: #F462B5;
   --white: #F5F3F8;
   --black: #000000;
-  --grey: #808080;
+  --grey: #333333;
+  --light-grey: #666666;
 }
 
 a {

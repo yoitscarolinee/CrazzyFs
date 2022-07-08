@@ -67,7 +67,7 @@ const MenuItemDropdown = (props) => {
 
         </DropdownTitle>
 
-        <IconContext.Provider value={{ color: 'var(--grey)', size: '0.8rem', style: { verticalAlign: 'middle' } }}>
+        <IconContext.Provider value={{ color: 'var(--light-grey)', size: '0.8rem', style: { verticalAlign: 'middle' } }}>
             <div className="dropdownContent">
                 {options}
             </div>
@@ -86,7 +86,7 @@ const DropdownContent = styled.div`
     justify-content: left;
     padding: 10px 20px;
     white-space: nowrap;
-    color: var(--grey);
+    color: var(--light-grey);
     font-size: 0.8rem;
     gap: 10px;
     cursor: pointer;
