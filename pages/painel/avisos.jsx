@@ -1,4 +1,4 @@
-import { Head } from "next/document";
+import Head from "next/head";
 import styled from "styled-components";
 import Menu from "../../components/admin/Menu";
 import TopMenu from "../../components/admin/TopMenu";
