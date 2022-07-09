@@ -3,6 +3,66 @@ import { MdOutlineNotificationsNone, MdOutlineNotificationsActive } from 'react-
 import { IconContext } from "react-icons/lib";
 import { useEffect, useState } from "react";
 
+const NotificationBox = () => {
+
+    const [notificacoes, setNotificacoes] = useState([]);
+    const [toast, setToast] = useState('');
+    const [visible, setVisible] = useState(false);
+
+    function handleClick() {
+        setVisible(!visible);
+        console.log(visible)
+    }
+
+    useEffect(() => {
+
+        setTimeout(() => {
+            if (notificacoes.length > 0) {
+                setToast(<MdOutlineNotificationsActive />);
+                return
+            } else {
+                setToast(<MdOutlineNotificationsNone />);
+            };
+
+        }, 1000);
+
+    });
+
+    return (
+
+        <>
+            <IconContext.Provider value={{ color: 'var(--black)', size: '1.2rem' }}>
+                <NotificationButton onClick={handleClick}>
+
+                    {toast}
+
+                </NotificationButton>
+            </IconContext.Provider>
+                <NotificationBoxWrapper visibility={visible}>
+                    <div className="notificacao">
+
+                        <p>texto muito legal e grande</p>
+                        <p>- autor</p>
+
+                    </div>
+                    <div className="notificacao">
+
+                        <p>texto muito legal e grande</p>
+                        <p>- autor</p>
+
+                    </div>
+                    <div className="notificacao">
+
+                        <p>texto muito legal e grande</p>
+                        <p>- autor</p>
+
+                    </div>
+                </NotificationBoxWrapper>
+        </>
+
+    );
+}
+
 const NotificationButton = styled.div`
     background-color: var(--white);
     border-radius: 5px;
@@ -23,7 +83,7 @@ const NotificationButton = styled.div`
 
 const NotificationBoxWrapper = styled.div`
 
-    display: none;
+    display: ${props => props.visibility ? 'block' : 'none'};
 
     width: 200px;
     background-color: var(--white);
@@ -61,65 +121,5 @@ const NotificationBoxWrapper = styled.div`
     }
 
 `;
-
-const NotificationBox = () => {
-
-    const [notificacoes, setNotificacoes] = useState([]);
-    const [toast, setToast] = useState('');
-    const [visible, setVisible] = useState(false);
-
-    function handleClick() {
-        setVisible(!visible);
-        console.log(visible);
-    }
-
-    useEffect(() => {
-
-        setTimeout(() => {
-            if (notificacoes.length > 0) {
-                setToast(<MdOutlineNotificationsActive />);
-                return
-            } else {
-                setToast(<MdOutlineNotificationsNone />);
-            };
-
-        }, 1000);
-
-    });
-
-    return (
-
-        <>
-            <IconContext.Provider value={{ color: 'var(--black)', size: '1.2rem' }}>
-                <NotificationButton onClick={handleClick}>
-
-                    {toast}
-
-                </NotificationButton>
-            </IconContext.Provider>
-                <NotificationBoxWrapper>
-                    <div className="notificacao">
-
-                        <p>texto muito legal e grande</p>
-                        <p>- autor</p>
-
-                    </div>
-                    <div className="notificacao">
-
-                        <p>texto muito legal e grande</p>
-                        <p>- autor</p>
-
-                    </div>
-                    <div className="notificacao">
-
-                        <p>texto muito legal e grande</p>
-                        <p>- autor</p>
-
-                    </div>
-                </NotificationBoxWrapper>
-        </>
-
-    );
-}
 
 export default NotificationBox;
